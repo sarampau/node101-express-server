@@ -1,10 +1,15 @@
-// import files and packages up here
+const express = require('express');
+const data = require('./data.json');
+const PORT = process.env.PORT || 3000;
 
+const app = express();
 
-// create your express server below
-var app;
+app.get('/', (req, res) => {
+    res.status(200).send('New express server');
+});
 
-// add your routes and middleware below
+app.get('/data', (req, res) => {
+    res.send(data)
+})
 
-// finally export the express application
 module.exports = app;
